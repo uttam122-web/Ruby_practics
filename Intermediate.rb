@@ -118,28 +118,54 @@
 
 # greet { |name| puts "Hi, #{name}!" }  
 
-#Find all prime numbers in a given range
+#6 Find all prime numbers in a given range
 
-def is_prime(num)
-  return false if num <= 1
+# def is_prime(num)
+#   return false if num <= 1
 
-  for i in 2...num
-    if num % i == 0
-      return false
-    end
+#   for i in 2...num
+#     if num % i == 0
+#       return false
+#     end
+#   end
+
+#   return true
+# end
+
+# puts "Please Give The Starting Number Of Range"
+# start = gets.chomp.to_i
+
+# puts "Please Give The Ending Number Of Range"
+# ends = gets.chomp.to_i
+
+# for num in start..ends
+#   if is_prime(num)
+#     puts num
+#   end
+# end
+
+#7 Find the LCM (Least Common Multiple) of two numbers using logic.
+
+def find_gcd(a, b)
+  while b != 0
+    temp = b
+    b = a % b
+    a = temp
   end
-
-  return true
+  return a
 end
 
-puts "Please Give The Starting Number Of Range"
-start = gets.chomp.to_i
-
-puts "Please Give The Ending Number Of Range"
-ends = gets.chomp.to_i
-
-for num in start..ends
-  if is_prime(num)
-    puts num
-  end
+def find_lcm(a, b)
+  gcd = find_gcd(a, b)
+  lcm = (a * b) / gcd
+  return lcm
 end
+
+puts "Enter first number:"
+num1 = gets.chomp.to_i
+
+puts "Enter second number:"
+num2 = gets.chomp.to_i
+
+lcm = find_lcm(num1, num2)
+puts "The LCM of #{num1} and #{num2} is #{lcm}"
