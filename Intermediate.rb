@@ -188,19 +188,95 @@
 
 #9 Find the largest prime factor of a number.
 
-puts "Please Enter The Number"
-num = gets.chomp.to_i
+# puts "Please Enter The Number"
+# num = gets.chomp.to_i
 
-i = 2
-largest_factor = 1
+# i = 2
+# largest_factor = 1
 
-while i <= num
-  if num % i == 0
-    largest_factor = i
-    num /= i
-  else
-    i += 1
+# while i <= num
+#   if num % i == 0
+#     largest_factor = i
+#     num /= i
+#   else
+#     i += 1
+#   end
+# end
+
+# puts "The largest prime factor is #{largest_factor}"
+
+#10 Rotate an array to the right by k positions.
+
+# def right_rotate(arr, k)
+#   n = arr.length
+#   k = k % n 
+#   rotated = arr[-k..-1] + arr[0...-k]
+#   return rotated
+# end
+
+# arr = [1, 2, 3, 4, 5]
+# puts "Enter how many positions to rotate:"
+# k = gets.chomp.to_i
+
+# rotated_arr = right_rotate(arr, k)
+# puts "Array after rotating right by #{k} positions:"
+# puts rotated_arr.inspect
+
+#11 Check if two arrays are equal (same elements and count, any order).
+
+# def arrays_equal?(arr1, arr2)
+#   return false unless arr1.length == arr2.length
+#   return arr1.sort == arr2.sort
+# end
+
+# arr1 = [3, 1, 2, 2]
+# arr2 = [2, 3, 1, 2]
+
+# if arrays_equal?(arr1, arr2)
+#   puts "The arrays are equal"
+# else
+#   puts "The arrays are NOT equal"
+# end      
+
+#12 Find all duplicate elements in an array.
+
+def find_duplicates(arr)
+  counts = Hash.new(0)
+  duplicates = []
+
+  arr.each do |element|
+    counts[element] += 1
   end
+
+  counts.each do |key, value|
+    duplicates << key if value > 1
+  end
+
+  return duplicates
 end
 
-puts "The largest prime factor is #{largest_factor}"
+arr = [1, 2, 3, 2, 4, 5, 3, 1, 6]
+puts "Duplicate elements: #{find_duplicates(arr).inspect}"
+
+#13 Implement a basic frequency counter without using tally.
+
+def frequency_counter(arr)
+  counts = {}
+
+  arr.each do |item|
+    if counts.key?(item)
+      counts[item] += 1
+    else
+      counts[item] = 1
+    end
+  end
+
+  counts
+end
+
+arr = ["apple", "banana", "apple", "orange", "banana", "apple"]
+frequencies = frequency_counter(arr)
+
+frequencies.each do |item, count|
+  puts "#{item}: #{count}"
+end
