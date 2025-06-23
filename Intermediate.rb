@@ -146,26 +146,61 @@
 
 #7 Find the LCM (Least Common Multiple) of two numbers using logic.
 
-def find_gcd(a, b)
-  while b != 0
-    temp = b
-    b = a % b
-    a = temp
+# def find_gcd(a, b)
+#   while b != 0
+#     temp = b
+#     b = a % b
+#     a = temp
+#   end
+#   return a
+# end
+
+# def find_lcm(a, b)
+#   gcd = find_gcd(a, b)
+#   lcm = (a * b) / gcd
+#   return lcm
+# end
+
+# puts "Enter first number:"
+# num1 = gets.chomp.to_i
+
+# puts "Enter second number:"
+# num2 = gets.chomp.to_i
+
+# lcm = find_lcm(num1, num2)
+# puts "The LCM of #{num1} and #{num2} is #{lcm}"
+
+#8 Calculate power using a loop (e.g., base^exponent).
+
+# puts "Please Enter Base"
+# base = gets.chomp.to_i
+
+# puts "Please Enter Exponent"
+# expo = gets.chomp.to_i
+
+# result = 1
+
+# for i in 1..expo
+#   result = result * base
+# end
+
+# puts "#{base} raised to the power #{expo} is #{result}"
+
+#9 Find the largest prime factor of a number.
+
+puts "Please Enter The Number"
+num = gets.chomp.to_i
+
+i = 2
+largest_factor = 1
+
+while i <= num
+  if num % i == 0
+    largest_factor = i
+    num /= i
+  else
+    i += 1
   end
-  return a
 end
 
-def find_lcm(a, b)
-  gcd = find_gcd(a, b)
-  lcm = (a * b) / gcd
-  return lcm
-end
-
-puts "Enter first number:"
-num1 = gets.chomp.to_i
-
-puts "Enter second number:"
-num2 = gets.chomp.to_i
-
-lcm = find_lcm(num1, num2)
-puts "The LCM of #{num1} and #{num2} is #{lcm}"
+puts "The largest prime factor is #{largest_factor}"
