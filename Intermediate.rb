@@ -106,14 +106,40 @@
 # puts calculate_total_price(100)     
 # puts calculate_total_price(200, 0.1)
 
-def say_hi
-  yield   # runs the block passed
+# def say_hi
+#   yield   # runs the block passed
+# end
+
+# say_hi { puts "Hello from the block!" } 
+
+# def greet
+#   yield("Uttam")
+# end
+
+# greet { |name| puts "Hi, #{name}!" }  
+
+#Find all prime numbers in a given range
+
+def is_prime(num)
+  return false if num <= 1
+
+  for i in 2...num
+    if num % i == 0
+      return false
+    end
+  end
+
+  return true
 end
 
-say_hi { puts "Hello from the block!" } 
+puts "Please Give The Starting Number Of Range"
+start = gets.chomp.to_i
 
-def greet
-  yield("Uttam")
+puts "Please Give The Ending Number Of Range"
+ends = gets.chomp.to_i
+
+for num in start..ends
+  if is_prime(num)
+    puts num
+  end
 end
-
-greet { |name| puts "Hi, #{name}!" }  
